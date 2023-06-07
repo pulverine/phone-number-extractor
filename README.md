@@ -10,5 +10,5 @@ This script is designed to scrape phone numbers from a text file and store them 
 6. Once the script finishes executing, you will find the scraped numbers in the "output.xlsx" file.
 
 # Dependencies
-Python 3.x
-openpyxl library
+1. Python 3.x
+2. openpyxl library
