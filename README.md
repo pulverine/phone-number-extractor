@@ -1,6 +1,6 @@
 # Phone number extractor Python Script
 This script is designed to scrape phone numbers from a text file and store them in an Excel file. It currently supports phone numbers from the following countries:
-Nigeria, 
+Nigeria, USA, UK
 
 # Usage 
 1. Make sure you have Python installed on your system.
@@ -11,5 +11,5 @@ Nigeria,
 6. Once the script finishes executing, you will find the scraped numbers in the "output.xlsx" file.
 
 # Dependencies
-1. Python 3.x
-2. openpyxl library
+1. Python 3.x obviously
+2. openpyxl 
