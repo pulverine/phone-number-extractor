@@ -66,67 +66,41 @@ def scrap_numbers():
             us_match2 = re.search(r"^\+1\s\d{3}\s\d{3}\s\d{4}$", line)
             us_match3 = re.search(r"^\+1\d{10}$", line)
 
+            ng_match_list = [ng_match1, ng_match2, ng_match3, ng_match4, ng_match5, ng_match6, ng_match7,
+                             ng_match8, ng_match9, ng_match10,
+                             ng_match11, ng_match12, ng_match13,
+                             ng_match14, ng_match15, ng_match16, ng_match17, ng_match18, ng_match19, ng_match20,
+                             ng_match21, ng_match22,
+                             ng_match23, ng_match24, ng_match25,
+                             ng_match26, ng_match27, ng_match28]
+
+            us_match_list = [us_match1, us_match2, us_match3]
+
             # Check if the inputted country is among specified countries
-            if country.upper() in country_list:
+            if country.upper() == 'NG':
+                # Specify regular expressions for the country phone numbers
+                for match in ng_match_list:
+                    if match:
+                        ng_list.append(match.group())
+                        # print(match.group())
+                    else:
+                        pass
 
-                if country.upper() == 'NG':
-                    # Specify regular expressions for the country phone numbers
+            if country.upper() == 'US':
+                # Specify regular expressions for the country phone numbers
+                for match in us_match_list:
+                    if match:
+                        us_list.append(match.group())
+                        # print(match.group())
+                    else:
+                        pass
 
-                    ng_match_list = [ng_match1, ng_match2, ng_match3, ng_match4, ng_match5, ng_match6, ng_match7,
-                                     ng_match8, ng_match9, ng_match10,
-                                     ng_match11, ng_match12, ng_match13,
-                                     ng_match14, ng_match15, ng_match16, ng_match17, ng_match18, ng_match19, ng_match20,
-                                     ng_match21, ng_match22,
-                                     ng_match23, ng_match24, ng_match25,
-                                     ng_match26, ng_match27, ng_match28]
+        if country.upper() == 'US':
+            print(us_list)
+        elif country.upper() == 'NG':
+            print(ng_list)
+        check_another()
 
-                    for match in ng_match_list:
-                        if match:
-                            ng_list.append(match.group())
-                        else:
-                            pass
-
-                    print(f'Nigerian Numbers: {ng_list}')
-
-                if country.upper() == 'US':
-
-                    us_match_list = [us_match1, us_match2, us_match3,
-                                     # us_match4, us_match5, us_match6, us_match7, us_match8,
-                                     # us_match9, us_match10,
-                                     # us_match11, us_match12, us_match13,
-                                     # us_match14, us_match15, us_match16, us_match17, us_match18, us_match19, us_match20,
-                                     # us_match21, us_match22,
-                                     # us_match23, us_match24, us_match25,
-                                     # us_match26, us_match27, us_match28
-                                     ]
-
-                    for match in us_match_list:
-                        if match:
-                            us_list.append(match.group())
-                        else:
-                            pass
-
-                    print(f'US Numbers: {us_list}')
-
-                check_another()
-            else:
-                print('Please enter a valid country from the list')
-                scrap_numbers()
-
-    # Create a new workbook
-    workbook = openpyxl.Workbook()
-
-    # Select the active sheet
-    sheet = workbook.active
-
-    # Define your array
-
-    # Write the array values to the column in Excel
-    for index, value in enumerate(ng_list):
-        sheet.cell(row=index + 1, column=1, value=value)
-
-    # Save the workbook
-    workbook.save("output.xlsx")
 
 
 scrap_numbers()
